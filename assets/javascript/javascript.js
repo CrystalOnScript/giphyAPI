@@ -7,6 +7,8 @@ var gifOb = {};
 // lets get our gifs
 
 function getGifs(){
+	// clear out last gifs
+	$("#seeGifs").empty();
 
 	// we are taking the attribute data name we created in renderButtons() to add to query URL
 	var gifSubmit = $(this).attr("data-name");
