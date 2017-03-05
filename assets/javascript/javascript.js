@@ -29,8 +29,8 @@ function getGifs(){
 
 			// console.log(gifDisplay);
 
-			$("#seeGifs").append("<img src="+gifDisplayStill+">");
-			
+			$("#seeGifs").append("<img src="+gifDisplayMove+">");
+
 		}
 		console.log(response);
 
@@ -85,6 +85,8 @@ $("#addNature").on("click", function(event){
 	renderButtons();
 
 	console.log(topics);
+
+	$("#nature-input").val("");
 
 });
 
