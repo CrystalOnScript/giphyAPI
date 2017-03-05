@@ -1,0 +1,11 @@
+ 	button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+
+    img{
+    	max-width: 300px;
+    	margin: 10px;
+    }
