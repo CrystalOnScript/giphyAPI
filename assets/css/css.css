@@ -8,4 +8,9 @@
     img{
     	max-width: 300px;
     	margin: 10px;
+    	/*float: left;*/
     }
+
+	.left {
+		float: left;
+	}

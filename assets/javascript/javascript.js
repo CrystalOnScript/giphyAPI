@@ -1,5 +1,5 @@
 // create an array for topics. This is also where user input will be pushed into
-var topics = ["Trees", "Mountains", "Forest", "Sunshine"];
+var topics = ["Trees", "Mountains", "Forest", "Ocean"];
 
 // TODO delete after finished deBug
 var gifOb = {};
@@ -24,20 +24,23 @@ function getGifs(){
 
 		gifArray = response.data;
 
+		gifRating = response.data.raiting;
+
 		for(var i = 0; i<gifArray.length; i++){
 
 			var gifDisplayMove = gifArray[i].images.original.url;
-			var gifDisplayStill = gifArray[i].images.original_still.url
+			var gifDisplayStill = gifArray[i].images.original_still.url;
+			gifRating = gifArray[i].rating;
 
-			// console.log(gifDisplay);
+			$("#seeGifs").append("<div class='left'><p>Rated: "+gifRating+"</p><p><img class='moveMe' id='"+gifDisplayMove+"' src="+gifDisplayStill+"></p><div>");
+		};
 
-			$("#seeGifs").append("<img src="+gifDisplayMove+">");
-
-		}
 		console.log(response);
 
 
-	});
+
+		});
+
 };
 
 //  this function will take our array topics and turn it into buttons
@@ -92,7 +95,13 @@ $("#addNature").on("click", function(event){
 
 });
 
+
+
+
+
+
 $(document).on("click", ".nature", getGifs);
+
 
 renderButtons();
 	console.log(topics);
