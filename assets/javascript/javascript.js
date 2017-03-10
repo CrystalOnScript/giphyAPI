@@ -37,8 +37,6 @@ function getGifs(){
 
 		console.log(response);
 
-
-
 		});
 
 };
@@ -66,8 +64,6 @@ function renderButtons(){
 
 		// adds buttons to div
 		$("#showButtons").append(button);
-
-		
 
 	};
 
@@ -122,5 +118,5 @@ $("#showButtons").on("click", ".nature", getGifs);
 
 
 renderButtons();
-	console.log(topics);
+console.log(topics);
 
