@@ -7,10 +7,14 @@
 
     img{
     	max-width: 300px;
-    	margin: 10px;
+    	margin: 5px;
     	/*float: left;*/
     }
 
 	.left {
 		float: left;
 	}
+
+    body{
+        background: url("sakura.png")
+    }

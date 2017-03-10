@@ -1,5 +1,5 @@
 // create an array for topics. This is also where user input will be pushed into
-var topics = ["Trees", "Mountains", "Forest", "Ocean"];
+var topics = ["Trees", "Mountains", "Forest", "Ocean", "Honey Badger", "Giant Squid"];
 
 // TODO delete after finished deBug
 var gifOb = {};
@@ -84,8 +84,6 @@ $("#addNature").on("click", function(event){
 	// push to array
 	topics.push(nature);
 
-	
-
 	// re-render the buttons
 	renderButtons();
 
@@ -98,9 +96,29 @@ $("#addNature").on("click", function(event){
 
 
 
+$("#seeGifs").on("click", ".moveMe", function(){
 
+	var moveUrl = $(this).attr("id");
+	var stillUrl = $(this).attr("src");
 
-$(document).on("click", ".nature", getGifs);
+	$(this).attr("id", stillUrl);
+	$(this).attr("src", moveUrl);
+	$(this).attr("class", "makeStill");
+
+});
+
+$("#seeGifs").on("click", ".makeStill", function(){
+
+	var moveUrl = $(this).attr("src");
+	var stillUrl = $(this).attr("id");
+
+	$(this).attr("id", moveUrl);
+	$(this).attr("src", stillUrl);
+	$(this).attr("class", "moveMe");
+
+});
+
+$("#showButtons").on("click", ".nature", getGifs);
 
 
 renderButtons();
