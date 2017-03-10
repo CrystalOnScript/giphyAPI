@@ -13,7 +13,7 @@ function getGifs(){
 	// we are taking the attribute data name we created in renderButtons() to add to query URL
 	var gifSubmit = $(this).attr("data-name");
 
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+gifSubmit+"&api_key=dc6zaTOxFJmzC&limit=10";   
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+gifSubmit+"&api_key=dc6zaTOxFJmzC&limit=10";   
 
 	$.ajax({
 		url: queryURL,
