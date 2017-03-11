@@ -1,8 +1,6 @@
 // create an array for topics. This is also where user input will be pushed into
 var topics = ["Trees", "Mountains", "Forest", "Ocean", "Honey Badger", "Giant Squid"];
 
-// TODO delete after finished deBug
-var gifOb = {};
 
 // lets get our gifs
 
@@ -13,7 +11,7 @@ function getGifs(){
 	// we are taking the attribute data name we created in renderButtons() to add to query URL
 	var gifSubmit = $(this).attr("data-name");
 
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+gifSubmit+"&api_key=dc6zaTOxFJmzC&limit=10";   
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+gifSubmit+"&api_key=dc6zaTOxFJmzC&limit=10";   
 
 	$.ajax({
 		url: queryURL,
@@ -67,6 +65,7 @@ function renderButtons(){
 
 	};
 
+
 };
 
 // when the addNature button is clicked
@@ -83,21 +82,22 @@ $("#addNature").on("click", function(event){
 	// re-render the buttons
 	renderButtons();
 
-	console.log(topics);
+	// this creates a storage for the array of buttons so we can render them on a second 
+	localStorage.setItem("saveButtons", topics);
 
 	$("#nature-input").val("");
 
 });
 
-
-
+	
+	
 
 $("#seeGifs").on("click", ".moveMe", function(){
 
-	var moveUrl = $(this).attr("id");
+	var moveUrl = $(this).attr("data-still");
 	var stillUrl = $(this).attr("src");
 
-	$(this).attr("id", stillUrl);
+	$(this).attr("data-still", stillUrl);
 	$(this).attr("src", moveUrl);
 	$(this).attr("class", "makeStill");
 
@@ -117,6 +117,15 @@ $("#seeGifs").on("click", ".makeStill", function(){
 $("#showButtons").on("click", ".nature", getGifs);
 
 
+$(document).ready(function(){
+// this checks if they have created buttons - if buttons were created we overwrite topics to that storage
+	if(localStorage.getItem("saveButtons") != null){
+		topics = localStorage.getItem("saveButtons").split(",");
+	};
+
 renderButtons();
 console.log(topics);
+
+});
+
 
