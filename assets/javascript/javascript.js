@@ -52,7 +52,7 @@ function renderButtons(){
 		var button = $("<button>");
 
 		// adds class of nature
-		button.addClass("nature");
+		button.addClass("nature btn");
 
 		// this adds the data name so we can submit something for giphy to look up
 		button.attr("data-name", topics[i]);
@@ -76,6 +76,9 @@ $("#addNature").on("click", function(event){
 	// grab user input from textbox
 	var nature = $("#nature-input").val().trim();
 
+	 if(nature === ""){
+	 	alert("Please Enter Some Nature")
+	 }else{
 	// push to array
 	topics.push(nature);
 
@@ -85,7 +88,7 @@ $("#addNature").on("click", function(event){
 	// this creates a storage for the array of buttons so we can render them on a second 
 	localStorage.setItem("saveButtons", topics);
 
-	$("#nature-input").val("");
+	$("#nature-input").val("");};
 
 });
 
